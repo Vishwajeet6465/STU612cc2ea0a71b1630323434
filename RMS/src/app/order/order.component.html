@@ -1,0 +1,224 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary" type="button" (click)="generateBill(submitBillForm)">Submit & Get Bill</button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="bill">
+      <div class="row">
+        <form class="row g-3" #submitBillForm="ngForm" id="submitBillForm">
+          <div class="row">
+            <h5>Customer Details</h5>
+            <div class="col-md-4">
+              <label for="inputEmail4" class="form-label">Customer Name</label>
+              <input type="text" class="form-control" required id="CustomerName" #CustomerName="ngModel"
+                [(ngModel)]="bill.customerName" name="BillCustomerName" placeholder="Customer Name" [ngClass]="{
+                'is-invalid':
+                CustomerName.invalid &&
+                  (CustomerName.dirty ||
+                  CustomerName.touched 
+                    )
+              }" [maxlength]="50">
+              <div class="invalid-feedback" [ngStyle]="{
+                      display:
+                      CustomerName.invalid &&
+                        (CustomerName.dirty ||
+                        CustomerName.touched ||
+                        submitBillForm.submitted)
+                          ? 'block'
+                          : 'none'
+                    }">
+                <div [hidden]="!CustomerName?.errors?.['required']">
+                  <span class="fa fa-exclamation-circle"></span> Customer Name
+                  is required
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="MobileNo" class="form-label">Mobile Number</label>
+              <input type="number" class="form-control" required id="MobileNo" #MobileNo="ngModel"
+                [(ngModel)]="bill.mobileNo" name="BillMobileNo" placeholder="Mobile Number" [ngClass]="{
+                'is-invalid':
+                MobileNo.invalid &&
+                  (MobileNo.dirty ||
+                  MobileNo.touched 
+                )
+              }" [maxlength]="10" [minlength]="10">
+              <div class="invalid-feedback" [ngStyle]="{
+                          display:
+                          MobileNo.invalid &&
+                            (MobileNo.dirty ||
+                            MobileNo.touched ||
+                            submitBillForm.submitted)
+                              ? 'block'
+                              : 'none'
+                        }">
+                <div [hidden]="!MobileNo?.errors?.['required']">
+                  <span class="fa fa-exclamation-circle"></span> Mobile Number
+                  is required
+                </div>
+                <div [hidden]="!MobileNo?.errors?.['maxlength']">
+                  <span class="fa fa-exclamation-circle"></span>Please enter valid mobile number
+                  is required
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <br>
+              <button class="btn btn-primary mt-1" type="submit" (click)="openProductModal(submitBillForm)"><i class="fa fa-plus"></i>
+                Add Product</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <hr>
+      <div class="row" *ngIf="productVMList.length >0">
+        <div class="col-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of productVMList">
+                <td>{{product.name}}</td>
+                <td>{{product.categoryName}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.total}}</td>
+                <td><button (click)="deleteProduct(product)"><i class="fa fa-trash"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row" *ngIf="productVMList.length === 0">
+        <div class="col-12 text-center">
+          <p>No products added</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<div class="modal fade" bsModal #productModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog"
+  aria-labelledby="dialog-static-name">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-static-name" class="modal-title pull-left">Add Product</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeProductModal(addEditForm)">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="addEditForm" #addEditForm="ngForm" (ngSubmit)="addProduct(addEditForm)">
+          <div class="row">
+            <div class="col-md-12">
+              <label for="inputProduct" class="form-label">Product</label>
+              <select class="form-control" required id="inputProduct" #inputProduct="ngModel" [(ngModel)]="productVM.id"
+                name="ProductList" (change)="onChangeProduct($event)" [ngClass]="{
+                      'is-invalid':
+                      inputProduct.invalid &&
+                        (inputProduct.dirty || inputProduct.touched || addEditForm.submitted)
+                    }">
+                    <option [value]="null" >Select Product</option>
+                <option [value]="item.id" *ngFor="let item of dropdownProductList">{{item.name}}</option>
+              </select>
+              <div class="invalid-feedback" [ngStyle]="{
+                      display:
+                      inputProduct.invalid &&
+                        (inputProduct.dirty || inputProduct.touched || addEditForm.submitted)
+                          ? 'block'
+                          : 'none'
+                    }">
+                <div [hidden]="!inputProduct?.errors?.['required']">
+                  <span class="fa fa-exclamation-circle"></span> Product is
+                  required
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label for="inputPrice" class="form-label">Price</label>
+              <input type="number" class="form-control" id="inputPrice" #inputProduct="ngModel"
+                [(ngModel)]="productVM.price" name="price" disabled required>
+            </div>
+            <div class="col-md-12">
+              <label for="quantity" class="form-label">Quantity</label>
+              <input type="number" class="form-control" required [(ngModel)]="productVM.quantity" [ngClass]="{
+                'is-invalid':
+                Quantity.invalid &&
+                  (Quantity.dirty ||
+                  Quantity.touched 
+                    )
+              }" name="Quantity" #Quantity="ngModel" placeholder="Quantity" [maxlength]="50"
+                (ngModelChange)="onQuantityChange()">
+              <div class="invalid-feedback" [ngStyle]="{
+                      display:
+                      Quantity.invalid &&
+                        (Quantity.dirty ||
+                        Quantity.touched ||
+                          addEditForm.submitted)
+                          ? 'block'
+                          : 'none'
+                    }">
+                <div [hidden]="!Quantity?.errors?.['required']">
+                  <span class="fa fa-exclamation-circle"></span> Quantity
+                  is required
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label for="total" class="form-label">Total</label>
+              <input type="text" class="form-control" id="inputTotal" #inputTotal="ngModel"
+                [(ngModel)]="productVM.total" name="productTotal" disabled required>
+            </div>
+          </div>
+          <div class="row mt-1">
+            <div class="col float-right">
+              <button class="btn btn-secondary float-md-end m-2" type="reset"
+                (click)="closeProductModal(addEditForm)">Cancel</button>
+              <button class="btn btn-primary float-md-end  m-2" type="submit">Add</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- delete modal -->
+<div class="modal fade" bsModal #deleteModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog"
+  aria-labelledby="dialog-static-name">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-static-name" class="modal-title pull-left">Delete Product</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="deleteModal.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Are you sure to delete <strong>{{productVM.name}}</strong>?</p>
+        <button type="button" class="btn btn-primary m-2" (click)="confirmDeleteProduct()">Yes</button>
+        <button type="button" class="btn btn-secondary m-2" (click)="closeDeleteModal()">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- delete modal -->

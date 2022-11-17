@@ -1,0 +1,99 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="card p-4">
+              <div class="card-body">
+                <form cForm id="loginForm" #loginForm="ngForm">
+                  <h1>Login</h1>
+                  <p class="text-medium-emphasis">Sign In to your account</p>
+                  <div class="row">
+                    <div class="col">
+                      <input 
+                      type="email" 
+                      class="form-control" 
+                      required
+                      id="inputEmail"
+                      #inputEmail="ngModel"
+                      [(ngModel)]="login.email"
+                      name="Email"
+                      [ngClass]="{
+                        'is-invalid':
+                        inputEmail.invalid &&
+                          (inputEmail.dirty ||
+                          inputEmail.touched 
+                            )
+                      }"
+                      placeholder="Enter email"
+                      [maxlength]="50">
+                      <div
+                            class="invalid-feedback"
+                            [ngStyle]="{
+                              display:
+                              inputEmail.invalid &&
+                                (inputEmail.dirty ||
+                                inputEmail.touched ||
+                                  loginForm.submitted)
+                                  ? 'block'
+                                  : 'none'
+                            }"
+                          >
+                            <div [hidden]="!inputEmail?.errors?.['required']">
+                              <span class="fa fa-exclamation-circle"></span> Email
+                              is required
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col">
+                      <input 
+                      type="password" 
+                      class="form-control" 
+                      placeholder="Enter Password"
+                      required
+                      id="inputPassword"
+                      #inputPassword="ngModel"
+                      [(ngModel)]="login.password"
+                      name="Password"
+                      [ngClass]="{
+                        'is-invalid':
+                        inputPassword.invalid &&
+                          (inputPassword.dirty ||
+                          inputPassword.touched 
+                            )
+                      }"
+                      [maxlength]="15">
+                      <div
+                            class="invalid-feedback"
+                            [ngStyle]="{
+                              display:
+                              inputPassword.invalid &&
+                                (inputPassword.dirty ||
+                                inputPassword.touched ||
+                                  loginForm.submitted)
+                                  ? 'block'
+                                  : 'none'
+                            }"
+                          >
+                            <div [hidden]="!inputPassword?.errors?.['required']">
+                              <span class="fa fa-exclamation-circle"></span> Password
+                              is required
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row mt-1">
+                    <div class="col float-right">
+                        <button class="btn btn-secondary float-md-end m-2" type="reset">Cancel</button>
+                        <button class="btn btn-primary float-md-end  m-2" type="submit" (click)="signIn(loginForm)">Login</button>
+                    </div>
+                  </div>
+                </form>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

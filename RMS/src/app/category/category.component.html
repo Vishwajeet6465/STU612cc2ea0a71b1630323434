@@ -1,0 +1,125 @@
+
+
+<div class="container">
+ 
+  <div class="row">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        
+        <button class="btn btn-primary" type="button" (click)="type='Add';openCategoryModal(null!);"><i class="fa fa-plus"></i> Add Category</button>
+    </div>
+  </div>
+
+<div class="container">
+  <label for="exampleDataList" class="form-label">Filter</label>
+<input class="form-control" list="datalistOptions" id="categorySearchText" #categorySearchText="ngModel" [(ngModel)]="searchText" name="inputSearch" (keyup)="searchCategories()" placeholder="Search Category...">
+
+<hr>
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+              <tr>
+                
+                <th scope="col">Product Category</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of categoryList">
+                <td>{{category.name}}</td>
+                <td><button (click)="type='Update';openCategoryModal(category)"><i class="fa fa-edit"></i></button> &nbsp;<button (click)="deleteCategory(category)"><i class="fa fa-trash"></i></button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+</div>
+</div>
+
+</div>
+
+
+<div class="modal fade" bsModal #categoryModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="dialog-static-name">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-static-name" class="modal-title pull-left">{{type==='Add'?'Add':'Update'}} Category</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="categoryModal.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #addEditForm="ngForm" id="addEditForm">
+          <div class="row">
+            <div class="col">
+              <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Category"
+              required
+              [(ngModel)]="category.name"
+              [ngClass]="{
+                'is-invalid':
+                  Fullname.invalid &&
+                  (Fullname.dirty ||
+                    Fullname.touched 
+                    )
+              }"
+              name="Fullname"
+              #Fullname="ngModel"
+              placeholder="Category"
+              [maxlength]="50">
+              <div
+                    class="invalid-feedback"
+                    [ngStyle]="{
+                      display:
+                        Fullname.invalid &&
+                        (Fullname.dirty ||
+                          Fullname.touched ||
+                          addEditForm.submitted)
+                          ? 'block'
+                          : 'none'
+                    }"
+                  >
+                    <div [hidden]="!Fullname?.errors?.['required']">
+                      <span class="fa fa-exclamation-circle"></span> Category
+                      is required
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <div class="row mt-1">
+            <div class="col float-right">
+              <button class="btn btn-secondary float-md-end m-2" type="reset" (click)="closeCategoryModal(addEditForm)">Cancel</button>
+              <button *ngIf="type==='Add'" class="btn btn-primary float-md-end  m-2" type="submit" (click)="addCategory(addEditForm)">Submit</button>
+              <button *ngIf="type==='Update'" class="btn btn-primary float-md-end  m-2" type="submit" (click)="updateCategory(addEditForm)">Update</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- delete modal -->
+<div class="modal fade" bsModal #deleteModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="dialog-static-name">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-static-name" class="modal-title pull-left">Delete Category</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="deleteModal.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Are you sure to delete <strong>{{category.name}}</strong>?</p>
+        <button type="button" class="btn btn-primary m-2" (click)="confirmDeleteCategory()" >Yes</button>
+        <button type="button" class="btn btn-secondary m-2" (click)="deleteModal.hide()" >No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- delete modal -->

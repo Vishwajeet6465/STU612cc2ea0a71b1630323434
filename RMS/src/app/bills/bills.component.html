@@ -1,0 +1,205 @@
+<div class="container">
+  <div class="container">
+    <label for="exampleDataList" class="form-label">Filter</label>
+    <input class="form-control" list="datalistOptions" id="categorySearchText" #categorySearchText="ngModel" [(ngModel)]="searchText" name="inputSearch" (keyup)="searchCustomer()" placeholder="Search customer name...">
+    
+    <hr>
+  <div class="row" *ngIf="billList.length >0">
+      <div class="col-12">
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Bill Id</th>
+                  <th scope="col">Customer Name</th>
+                  <th scope="col">Mobile No.</th>
+                  <th scope="col">Total Amount</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bill of billList">
+                  <td>{{bill.billId}}</td>
+                  <td>{{bill.customerName}}</td>
+                  <td>{{bill.mobileNo}}</td>
+                  <td>{{bill.total}}</td>
+                  <td>{{bill.total}}</td>
+                  <td><button type="reset" (click)="openModal(bill)"><i class="fa fa-eye"></i></button>&nbsp; <button (click)="print('printable',bill)"><i class="fa fa-print"></i></button>&nbsp;<button (click)="deleteBill(bill)"><i class="fa fa-trash"></i></button></td>
+                </tr>
+                
+              </tbody>
+            </table>
+      </div>
+  </div>
+  <div class="row" *ngIf="billList.length === 0">
+    <div class="col-12 text-center">
+      <p>No Bills generated</p>
+    </div>
+  </div>
+  </div>
+  
+  </div>
+
+
+
+  <div class="modal fade" bsModal #billsModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="dialog-static-name">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-static-name" class="modal-title pull-left">Bill Information</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="billsModal.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <div class="row">
+          <div class="col-4">
+            <p><strong>Bill Id</strong></p>
+          </div>
+          <div class="col-1">
+            <p><strong>:</strong></p>
+          </div>
+          <div class="col-7">
+            <p>{{bill.billId}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <p><strong>Customer Name</strong></p>
+          </div>
+          <div class="col-1">
+            <p><strong>:</strong></p>
+          </div>
+          <div class="col-7">
+            <p>{{bill.customerName}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <p><strong>Mobile number</strong></p>
+          </div>
+          <div class="col-1">
+            <p><strong>:</strong></p>
+          </div>
+          <div class="col-7">
+            <p>{{bill.mobileNo}}</p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div  class="col-12">
+            <table class="table table-borderless" cTable>
+              <thead>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Amount</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of bill.productVM">
+                  <th>{{product.name}}</th>
+                  <th>{{product.quantity}}</th>
+                  <th>{{product.price}}</th>
+                  <th>{{product.total}}</th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th colspan="2">Total Qty:&nbsp;&nbsp;<strong>{{getTotalQty()}}</strong></th>
+                  <th>Sub Total:&nbsp;&nbsp;<strong>{{bill.total}}</strong></th>
+                </tr>
+              <br>
+                <tr>
+                  <th scope="row"></th>
+                  <th></th>
+                  <th>Grand Total</th>
+                  <th><Strong>{{bill.total}}</Strong></th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- delete modal -->
+<div class="modal fade" bsModal #deleteModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="dialog-static-name">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-static-name" class="modal-title pull-left">Delete Bill</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="deleteModal.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Are you sure to delete bill of <strong>{{bill.customerName}}</strong>?</p>
+        <button type="button" class="btn btn-primary m-2" (click)="confirmDeleteBill()" >Yes</button>
+        <button type="button" class="btn btn-secondary m-2" (click)="deleteModal.hide()" >No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- delete modal -->
+
+<div id="printable" class="row" hidden>
+  <div class="row">
+    <div  class="col-12">
+      <table class="table table-borderless" cTable>
+        <tbody>
+        <tr>
+          <th><strong>Bill Id</strong></th>
+          <th>:</th>
+          <th> <p>{{bill.billId}}</p></th>
+        </tr>
+        <tr>
+          <th><strong>Customer Name</strong></th>
+          <th>:</th>
+          <th> <p>{{bill.customerName}}</p></th>
+        </tr>
+        <tr>
+          <th><strong>Mobile number</strong></th>
+          <th>:</th>
+          <th> <p>{{bill.mobileNo}}</p></th>
+        </tr>
+      </tbody>
+      </table>
+      </div>
+      </div>
+  <hr>
+  <div class="row">
+    <div  class="col-12">
+      <table class="table table-borderless" cTable>
+        <thead>
+          <th align="left">Name</th>
+          <th align="left">Quantity</th>
+          <th align="center">Price</th>
+          <th align="center">Amount</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of bill.productVM">
+            <th align="left">{{product.name}}</th>
+            <th align="center">{{product.quantity}}</th>
+            <th align="center">{{product.price}}</th>
+            <th align="center">{{product.total}}</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th colspan="2">Total Qty:&nbsp;&nbsp;<strong>{{getTotalQty()}}</strong></th>
+            <th>Sub Total:&nbsp;&nbsp;<strong>{{bill.total}}</strong></th>
+          </tr>
+        <br>
+          <tr>
+            <th scope="row"></th>
+            <th></th>
+            <th></th>
+            <th>Grand Total:<Strong>{{bill.total}}</Strong></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

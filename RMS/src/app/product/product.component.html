@@ -1,0 +1,212 @@
+<div class="container">
+
+  <div class="row">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+      <button class="btn btn-primary" type="button" (click)="type='Add';openProductModal(null!);"><i
+          class="fa fa-plus"></i> Add Product</button>
+    </div>
+  </div>
+
+  <div class="container">
+   <form #searchForm="ngForm" id="searchForm">
+    <div class="row">
+      
+      <div class="col-3">
+        <label for="exampleDataList" class="form-label">Filter</label>
+        <select class="form-control" required id="inputCategory" #inputCategory="ngModel"
+          [(ngModel)]="searchVM.categoryID" name="ProductList" (change)="onChangeCategory($event)" [ngClass]="{
+            'is-invalid':
+            inputCategory.invalid &&
+              (inputCategory.dirty || inputCategory.touched || searchForm.submitted)
+          }">
+          <option [value]="0" disabled selected>Select Category</option>
+          <option *ngFor="let item of categoryDropdownList" [value]="item.id">{{item.name}}</option>
+        </select>
+        <div class="invalid-feedback" [ngStyle]="{
+            display:
+            inputCategory.invalid &&
+              (inputCategory.dirty || inputCategory.touched || searchForm.submitted)
+                ? 'block'
+                : 'none'
+          }">
+          <div [hidden]="!inputCategory?.errors?.['required']">
+            <span class="fa fa-exclamation-circle"></span> Category is
+            required
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <br>
+        <input class="form-control mt-2" list="datalistOptions" id="categorySearchText" #categorySearchText="ngModel" [disabled]="searchVM.categoryID===0 || searchVM.categoryID===null "
+          [(ngModel)]="searchVM.productName" name="inputSearch" placeholder="Search Product...">
+      </div>
+      <div class="col-6 ">
+        <br>
+        <button class="btn btn-primary mt-2 m-2" type="button" (click)="searchProducts(searchForm)">Search</button>
+        <button class="btn btn-secondary mt-2 m-2" type="reset" (click)="resetProducts(searchForm)">Reset</button>
+      </div>
+    </div>
+   </form>
+
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of productList">
+
+              <td>{{product.name}}</td>
+              <td>{{product.category.name}}</td>
+              <td>{{product.price}}</td>
+              <td> <button (click)="type='Update';openProductModal(product);"><i class="fa fa-edit"></i></button>
+                &nbsp;<button (click)="deleteProduct(product)"><i class="fa fa-trash"></i></button></td>
+
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="modal fade" bsModal #productModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog"
+  aria-labelledby="dialog-static-name">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-static-name" class="modal-title pull-left">{{type==='Add'?'Add':'Update'}} Product</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close"
+          (click)="closeProductModal(addEditForm)">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #addEditForm="ngForm" id="addEditForm">
+          <div class="row">
+            <div class="col-md-12">
+              <label for="inputCategory" class="form-label">Category</label>
+              <select class="form-control" required id="inputCategory" #inputCategory="ngModel"
+                [(ngModel)]="product.category.id" name="ProductList" (change)="onChangeCategory($event)" [ngClass]="{
+                      'is-invalid':
+                      inputCategory.invalid &&
+                        (inputCategory.dirty || inputCategory.touched || addEditForm.submitted)
+                    }">
+                <option [value]="0" disabled selected>Select Category</option>
+                <option *ngFor="let item of categoryDropdownList" [value]="item.id">{{item.name}}</option>
+              </select>
+              <div class="invalid-feedback" [ngStyle]="{
+                      display:
+                      inputCategory.invalid &&
+                        (inputCategory.dirty || inputCategory.touched || addEditForm.submitted)
+                          ? 'block'
+                          : 'none'
+                    }">
+                <div [hidden]="!inputCategory?.errors?.['required']">
+                  <span class="fa fa-exclamation-circle"></span> Category is
+                  required
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <p>Product</p>
+              <input type="text" class="form-control" placeholder="Product" required id="Productname"
+                #Productname="ngModel" [(ngModel)]="product.name" name="inputProduct" [ngClass]="{
+                'is-invalid':
+                Productname.invalid &&
+                  (Productname.dirty ||
+                  Productname.touched 
+                    )
+              }" [maxlength]="50">
+
+              <div class="invalid-feedback" [ngStyle]="{
+                      display:
+                      Productname.invalid &&
+                        (Productname.dirty ||
+                        Productname.touched ||
+                          addEditForm.submitted)
+                          ? 'block'
+                          : 'none'
+                    }">
+                <div [hidden]="!Productname?.errors?.['required']">
+                  <span class="fa fa-exclamation-circle"></span> Product Name
+                  is required
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <label for="price" class="form-label">Price</label>
+              <input type="number" class="form-control" required id="Price" #Price="ngModel" [(ngModel)]="product.price"
+                name="inputPrice" [ngClass]="{
+                'is-invalid':
+                Price.invalid &&
+                  (Price.dirty ||
+                  Price.touched 
+                    )
+              }" placeholder="Price" [maxlength]="50">
+              <div class="invalid-feedback" [ngStyle]="{
+                      display:
+                      Price.invalid &&
+                        (Price.dirty ||
+                        Price.touched ||
+                          addEditForm.submitted)
+                          ? 'block'
+                          : 'none'
+                    }">
+                <div [hidden]="!Price?.errors?.['required']">
+                  <span class="fa fa-exclamation-circle"></span> Price
+                  is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-1">
+            <div class="col float-right">
+              <button class="btn btn-secondary float-md-end m-2" type="reset"
+                (click)="closeProductModal(addEditForm)">Cancel</button>
+              <button *ngIf="type==='Add'" class="btn btn-primary float-md-end  m-2" type="button"
+                (click)="addProduct(addEditForm)">Add</button>
+              <button *ngIf="type==='Update'" class="btn btn-primary float-md-end  m-2" type="button"
+                (click)="updateProduct(addEditForm)">Update</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- delete modal -->
+<div class="modal fade" bsModal #deleteModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog"
+  aria-labelledby="dialog-static-name">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-static-name" class="modal-title pull-left">Delete Product</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="deleteModal.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Are you sure to delete <strong> {{product.name}}</strong> ?</p>
+        <button type="button" class="btn btn-primary m-2" (click)="confirmDeleteProduct()">Yes</button>
+        <button type="button" class="btn btn-secondary m-2" (click)="closeDeleteModal()">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- delete modal -->

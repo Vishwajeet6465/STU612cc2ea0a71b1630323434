@@ -1,0 +1,829 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Starters",
+      "createdBy": "Admin",
+      "isActive": true,
+      "createdDate": "2022-11-16T17:42:08.147Z",
+      "updatedDate": "2022-11-16T17:42:08.147Z",
+      "upadatedBy": "Admin"
+    },
+    {
+      "id": 2,
+      "name": "Breakfast",
+      "createdBy": "Admin",
+      "isActive": true,
+      "createdDate": "2022-11-16T17:42:25.452Z",
+      "updatedDate": "2022-11-16T17:42:25.452Z",
+      "upadatedBy": "Admin"
+    },
+    {
+      "id": 3,
+      "name": "Lunch",
+      "createdBy": "Admin",
+      "isActive": true,
+      "createdDate": "2022-11-16T17:42:48.282Z",
+      "updatedDate": "2022-11-16T17:42:48.282Z",
+      "upadatedBy": "Admin"
+    },
+    {
+      "id": 4,
+      "name": "Dinner",
+      "createdBy": "Admin",
+      "isActive": true,
+      "createdDate": "2022-11-16T17:43:02.302Z",
+      "updatedDate": "2022-11-16T17:43:02.302Z",
+      "upadatedBy": "Admin"
+    },
+    {
+      "id": 5,
+      "name": "Desserts",
+      "createdBy": "Admin",
+      "isActive": true,
+      "createdDate": "2022-11-16T17:43:26.056Z",
+      "updatedDate": "2022-11-16T17:43:26.056Z",
+      "upadatedBy": "Admin"
+    },
+    {
+      "id": 6,
+      "name": "Beverages",
+      "createdBy": "Admin",
+      "isActive": true,
+      "createdDate": "2022-11-16T17:43:55.291Z",
+      "updatedDate": "2022-11-16T17:43:55.291Z",
+      "upadatedBy": "Admin"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Chineese Platter",
+      "price": 280,
+      "category": {
+        "id": 1,
+        "name": "Starters"
+      },
+      "createdDate": "2022-11-16T17:53:01.393Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T17:53:01.393Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "name": "Paneer 65",
+      "price": 250,
+      "category": {
+        "id": 1,
+        "name": "Starters"
+      },
+      "createdDate": "2022-11-16T17:53:37.857Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T17:53:37.857Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "name": "Veg Crispy",
+      "price": 220,
+      "category": {
+        "id": 1,
+        "name": "Starters"
+      },
+      "createdDate": "2022-11-16T17:54:10.367Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T17:54:10.367Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "name": "Veg Chowmin",
+      "price": 230,
+      "category": {
+        "id": 1,
+        "name": "Starters"
+      },
+      "createdDate": "2022-11-16T17:54:51.040Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T17:54:51.040Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "name": "Veg Fried Rice",
+      "price": 180,
+      "category": {
+        "id": 1,
+        "name": "Starters"
+      },
+      "createdDate": "2022-11-16T17:55:19.373Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T17:55:19.373Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 6,
+      "name": "Manchurian Dry",
+      "price": 230,
+      "category": {
+        "id": 1,
+        "name": "Starters"
+      },
+      "createdDate": "2022-11-16T17:55:52.500Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T17:55:52.500Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 7,
+      "name": "Choley Bhatura",
+      "price": 229,
+      "category": {
+        "id": 2,
+        "name": "Breakfast"
+      },
+      "createdDate": "2022-11-16T17:58:52.468Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T17:58:52.468Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 8,
+      "name": "Masala Dosa",
+      "price": 149,
+      "category": {
+        "id": 2,
+        "name": "Breakfast"
+      },
+      "createdDate": "2022-11-16T17:59:19.709Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T17:59:19.709Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 9,
+      "name": "Idli Sambhar",
+      "price": 99,
+      "category": {
+        "id": 2,
+        "name": "Breakfast"
+      },
+      "createdDate": "2022-11-16T18:00:12.281Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:00:12.281Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 10,
+      "name": "Onion Uttapam",
+      "price": 125,
+      "category": {
+        "id": 2,
+        "name": "Breakfast"
+      },
+      "createdDate": "2022-11-16T18:00:37.556Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:00:37.556Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 11,
+      "name": "Vada Sambhar",
+      "price": 99,
+      "category": {
+        "id": 2,
+        "name": "Breakfast"
+      },
+      "createdDate": "2022-11-16T18:01:15.372Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:01:15.372Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 12,
+      "name": "Veg Cheese Sandwitch",
+      "price": 119,
+      "category": {
+        "id": 2,
+        "name": "Breakfast"
+      },
+      "createdDate": "2022-11-16T18:02:07.284Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:02:07.284Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 13,
+      "name": "Dal Makhani",
+      "price": 289,
+      "category": {
+        "id": 3,
+        "name": "Lunch"
+      },
+      "createdDate": "2022-11-16T18:02:54.502Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:02:54.502Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 14,
+      "name": "Paneer Butter Masala",
+      "price": 329,
+      "category": {
+        "id": 3,
+        "name": "Lunch"
+      },
+      "createdDate": "2022-11-16T18:03:11.510Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:03:11.510Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 15,
+      "name": "Paneer Tikka",
+      "price": 329,
+      "category": {
+        "id": 3,
+        "name": "Lunch"
+      },
+      "createdDate": "2022-11-16T18:03:39.195Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:03:39.195Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 16,
+      "name": "Mix Vegetable",
+      "price": 289,
+      "category": {
+        "id": 3,
+        "name": "Lunch"
+      },
+      "createdDate": "2022-11-16T18:03:58.803Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:03:58.803Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 17,
+      "name": "Jeera Rice",
+      "price": 160,
+      "category": {
+        "id": 3,
+        "name": "Lunch"
+      },
+      "createdDate": "2022-11-16T18:04:26.715Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:04:26.715Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 18,
+      "name": "Dal Fry",
+      "price": 250,
+      "category": {
+        "id": 3,
+        "name": "Lunch"
+      },
+      "createdDate": "2022-11-16T18:04:56.919Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:04:56.919Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 19,
+      "name": "Kaju Kari",
+      "price": 269,
+      "category": {
+        "id": 4,
+        "name": "Dinner"
+      },
+      "createdDate": "2022-11-16T18:06:16.346Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:06:16.346Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 20,
+      "name": "Butter Garlic Naan",
+      "price": 100,
+      "category": {
+        "id": 4,
+        "name": "Dinner"
+      },
+      "createdDate": "2022-11-16T18:06:43.612Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:06:43.612Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 21,
+      "name": "Laccha Paratha",
+      "price": 70,
+      "category": {
+        "id": 4,
+        "name": "Dinner"
+      },
+      "createdDate": "2022-11-16T18:07:17.435Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:07:17.435Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 22,
+      "name": "Pav Bhaji",
+      "price": 219,
+      "category": {
+        "id": 4,
+        "name": "Dinner"
+      },
+      "createdDate": "2022-11-16T18:08:24.064Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:08:24.064Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 23,
+      "name": "Aloo Tikki Chole",
+      "price": 139,
+      "category": {
+        "id": 4,
+        "name": "Dinner"
+      },
+      "createdDate": "2022-11-16T18:08:52.287Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:08:52.287Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 24,
+      "name": "Maharaja Thali",
+      "price": 299,
+      "category": {
+        "id": 4,
+        "name": "Dinner"
+      },
+      "createdDate": "2022-11-16T18:09:30.478Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:09:30.478Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 25,
+      "name": "Black Current",
+      "price": 249,
+      "category": {
+        "id": 5,
+        "name": "Desserts"
+      },
+      "createdDate": "2022-11-16T18:09:56.704Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:09:56.704Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 26,
+      "name": "Gulab Jamun",
+      "price": 49,
+      "category": {
+        "id": 5,
+        "name": "Desserts"
+      },
+      "createdDate": "2022-11-16T18:10:24.300Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:10:24.300Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 27,
+      "name": "Rasgulla (12 Piece)",
+      "price": 295,
+      "category": {
+        "id": 5,
+        "name": "Desserts"
+      },
+      "createdDate": "2022-11-16T18:11:07.594Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:11:07.594Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 28,
+      "name": "Dark Chocolate",
+      "price": 179,
+      "category": {
+        "id": 5,
+        "name": "Desserts"
+      },
+      "createdDate": "2022-11-16T18:13:25.810Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:13:25.810Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 29,
+      "name": "Gajar Halwa",
+      "price": 160,
+      "category": {
+        "id": 5,
+        "name": "Desserts"
+      },
+      "createdDate": "2022-11-16T18:14:51.174Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:14:51.174Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 30,
+      "name": "Falooda",
+      "price": 220,
+      "category": {
+        "id": 5,
+        "name": "Desserts"
+      },
+      "createdDate": "2022-11-16T18:16:01.491Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:16:01.491Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 31,
+      "name": "Lassi",
+      "price": 78,
+      "category": {
+        "id": 6,
+        "name": "Beverages"
+      },
+      "createdDate": "2022-11-16T18:16:33.674Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:16:33.674Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 32,
+      "name": "Diet Coke",
+      "price": 80,
+      "category": {
+        "id": 6,
+        "name": "Beverages"
+      },
+      "createdDate": "2022-11-16T18:16:56.794Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:16:56.794Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 33,
+      "name": "Lemon Ice Tea",
+      "price": 120,
+      "category": {
+        "id": 6,
+        "name": "Beverages"
+      },
+      "createdDate": "2022-11-16T18:17:24.249Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:17:24.249Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 34,
+      "name": "Solkadhi",
+      "price": 50,
+      "category": {
+        "id": 6,
+        "name": "Beverages"
+      },
+      "createdDate": "2022-11-16T18:18:16.300Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:18:16.300Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 35,
+      "name": "Hot Coffe",
+      "price": 80,
+      "category": {
+        "id": 6,
+        "name": "Beverages"
+      },
+      "createdDate": "2022-11-16T18:19:13.754Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:19:13.754Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 36,
+      "name": "Badam Kesar Milk 180 ml",
+      "price": 30,
+      "category": {
+        "id": 6,
+        "name": "Beverages"
+      },
+      "createdDate": "2022-11-16T18:21:12.561Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-16T18:21:12.561Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    }
+  ],
+  "bills": [
+    {
+      "id": 1,
+      "billId": 414,
+      "customerName": "Vishwajeet Bamane",
+      "mobileNo": 9404478528,
+      "total": 1897,
+      "productVM": [
+        {
+          "id": "23",
+          "name": "Aloo Tikki Chole",
+          "price": 139,
+          "quantity": 3,
+          "total": 417,
+          "categoryName": "Dinner",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "3",
+          "name": "Veg Crispy",
+          "price": 220,
+          "quantity": 1,
+          "total": 220,
+          "categoryName": "Starters",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "5",
+          "name": "Veg Fried Rice",
+          "price": 180,
+          "quantity": 2,
+          "total": 360,
+          "categoryName": "Starters",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "30",
+          "name": "Falooda",
+          "price": 220,
+          "quantity": 3,
+          "total": 660,
+          "categoryName": "Desserts",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "32",
+          "name": "Diet Coke",
+          "price": 80,
+          "quantity": 3,
+          "total": 240,
+          "categoryName": "Beverages",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        }
+      ],
+      "createdDate": "2022-11-17T06:53:58.414Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-17T06:53:58.414Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "billId": 743,
+      "customerName": "Saurabh A",
+      "mobileNo": 8080661760,
+      "total": 1963,
+      "productVM": [
+        {
+          "id": "1",
+          "name": "Chineese Platter",
+          "price": 280,
+          "quantity": 2,
+          "total": 560,
+          "categoryName": "Starters",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "7",
+          "name": "Choley Bhatura",
+          "price": 229,
+          "quantity": 2,
+          "total": 458,
+          "categoryName": "Breakfast",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "15",
+          "name": "Paneer Tikka",
+          "price": 329,
+          "quantity": 1,
+          "total": 329,
+          "categoryName": "Lunch",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "32",
+          "name": "Diet Coke",
+          "price": 80,
+          "quantity": 2,
+          "total": 160,
+          "categoryName": "Beverages",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "26",
+          "name": "Gulab Jamun",
+          "price": 49,
+          "quantity": 2,
+          "total": 98,
+          "categoryName": "Desserts",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "28",
+          "name": "Dark Chocolate",
+          "price": 179,
+          "quantity": 2,
+          "total": 358,
+          "categoryName": "Desserts",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        }
+      ],
+      "createdDate": "2022-11-17T07:02:34.743Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-17T07:02:34.743Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "billId": 390,
+      "customerName": "Pallavi Chikhale",
+      "mobileNo": 8767188797,
+      "total": 3239,
+      "productVM": [
+        {
+          "id": "14",
+          "name": "Paneer Butter Masala",
+          "price": 329,
+          "quantity": 2,
+          "total": 658,
+          "categoryName": "Lunch",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "24",
+          "name": "Maharaja Thali",
+          "price": 299,
+          "quantity": 2,
+          "total": 598,
+          "categoryName": "Dinner",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "32",
+          "name": "Diet Coke",
+          "price": 80,
+          "quantity": 2,
+          "total": 160,
+          "categoryName": "Beverages",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "30",
+          "name": "Falooda",
+          "price": 220,
+          "quantity": 2,
+          "total": 440,
+          "categoryName": "Desserts",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "27",
+          "name": "Rasgulla (12 Piece)",
+          "price": 295,
+          "quantity": 3,
+          "total": 885,
+          "categoryName": "Desserts",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        },
+        {
+          "id": "25",
+          "name": "Black Current",
+          "price": 249,
+          "quantity": 2,
+          "total": 498,
+          "categoryName": "Desserts",
+          "createdDate": null,
+          "createdBy": null,
+          "updatedDate": null,
+          "upadatedBy": null,
+          "isActive": null
+        }
+      ],
+      "createdDate": "2022-11-17T07:04:04.390Z",
+      "createdBy": "Admin",
+      "updatedDate": "2022-11-17T07:04:04.390Z",
+      "upadatedBy": "Admin",
+      "isActive": true
+    }
+  ]
+}
